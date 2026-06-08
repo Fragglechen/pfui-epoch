@@ -1,0 +1,19 @@
+## Interface: 30300
+## Title: |cff33ffccpf|cffffffffUI |cffaaaaaa[Epoch]
+## Author: Shagu (Original), Fragglechen (Epoch Port and Extensions)
+## Notes: A complete user interface replacement, ported and extended for Epoch.
+## Notes-ruRU: Полная замена пользовательского интерфейса.
+## Version: 1.0.0
+## X-Upstream-Version: 5.3.2
+## SavedVariables: pfUI_profiles, pfUI_addon_profiles, pfUI_cache
+## SavedVariablesPerCharacter: pfUI_config, pfUI_init, pfUI_playerDB
+
+pfUI.lua
+
+init\env.xml
+init\compat.xml
+init\api.xml
+init\libs.xml
+init\skins.xml
+init\modules.xml
+init\addonskinner.xml
