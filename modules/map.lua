@@ -14,23 +14,10 @@ pfUI:RegisterModule("map", "vanilla:tbc:wotlk", function ()
     end
   end
 
-  -- hook SetMapToCurrentZone to allow suppression
   local pfOrigSetMapToCurrentZone = _G.SetMapToCurrentZone
-  _G.SetMapToCurrentZone = function()
-    if C.appearance.worldmap.autozoneswitch == "0" and WorldMapFrame:IsShown() then return end
-    pfOrigSetMapToCurrentZone()
-  end
 
   -- register config update handler
   pfUI.map = { UpdateConfig = UpdateTooltipScale }
-
-  function _G.ToggleWorldMap()
-    if WorldMapFrame:IsShown() then
-      WorldMapFrame:Hide()
-    else
-      WorldMapFrame:Show()
-    end
-  end
 
   C.position["WorldMapFrame"] = C.position["WorldMapFrame"] or { alpha = 1.0, scale = 0.7 }
   C.position["WorldMapFrame"].parent = nil
@@ -220,8 +207,6 @@ pfUI:RegisterModule("map", "vanilla:tbc:wotlk", function ()
     if Cartographer then return end
     if METAMAP_TITLE then return end
 
-    UIPanelWindows["WorldMapFrame"] = { area = "center" }
-
     WorldMapFrame:SetMovable(true)
     WorldMapFrame:EnableMouse(true)
     WorldMapFrame:RegisterForDrag("LeftButton")
@@ -231,6 +216,10 @@ pfUI:RegisterModule("map", "vanilla:tbc:wotlk", function ()
       this.hooked = true
 
       HookScript(WorldMapFrame, "OnShow", function()
+        -- The world map is protected in combat. Its layout is already applied
+        -- during login, so avoid tainting the combat-safe Blizzard open path.
+        if InCombatLockdown and InCombatLockdown() then return end
+
         -- customize
         this:EnableKeyboard(false)
         this:EnableMouseWheel(1)
