@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.01 - 2026-06-10
+## 1.0.1 - 2026-06-10
 
 - Rename the addon package and TOC to `pfui-epoch`.
 - Update installation instructions for the new addon folder name.
