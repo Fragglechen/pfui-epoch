@@ -45,13 +45,13 @@ Use [EpochAddonUpdater](https://github.com/Fragglechen/EpochAddonUpdater).
 
 1. [Download pfUI Epoch](https://github.com/Fragglechen/pfui-epoch).
 2. Extract the zip file.
-3. Ensure the resulting folder is named `pfUI`.
+3. Ensure the resulting folder is named `pfui-epoch`.
 4. Move that folder to `[Path\To\WoW]\Interface\AddOns`.
-5. Ensure the structure is `Interface\AddOns\pfUI\pfUI.toc`.  
-   <sup>*These are all **wrong**:*  
-   x `pfUI\pfUI\pfUI.toc`  
-   x `pfui-epoch-main\pfUI.toc`  
-   x `pfUI\pfui-epoch-main\pfUI.toc`
+5. Ensure the structure is `Interface\AddOns\pfui-epoch\pfui-epoch.toc`.
+   <sup>*These are all **wrong**:*
+   x `pfui-epoch\pfui-epoch\pfui-epoch.toc`
+   x `pfui-epoch-main\pfui-epoch.toc`
+   x `pfui-epoch\pfui-epoch-main\pfui-epoch.toc`
    </sup>
 
 ## Commands

@@ -212,6 +212,19 @@ pfUI:RegisterModule("addonbuttons", "vanilla:tbc:wotlk", function ()
     end
   end
 
+  local function PinRequiredButtons()
+    local name = "pfMinimapPvPQueue"
+    local frame = _G[name]
+    if not frame then return end
+
+    local index = TableMatch(pfUI.addonbuttons.buttons, name)
+    if index then
+      table.remove(pfUI.addonbuttons.buttons, index)
+    end
+
+    table.insert(pfUI.addonbuttons.buttons, 1, name)
+  end
+
   local function UpdatePanel()
     ScanForButtons()
     for i, button_name in ipairs(pfUI_cache["abuttons"]["add"]) do
@@ -231,6 +244,7 @@ pfUI:RegisterModule("addonbuttons", "vanilla:tbc:wotlk", function ()
         table.remove(pfUI.addonbuttons.buttons, TableMatch(pfUI.addonbuttons.buttons, button_name))
       end
     end
+    PinRequiredButtons()
     for i, button_name in ipairs(pfUI.addonbuttons.buttons) do
       NormalizeButton(_G[button_name])
     end

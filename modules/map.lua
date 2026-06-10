@@ -216,6 +216,11 @@ pfUI:RegisterModule("map", "vanilla:tbc:wotlk", function ()
       this.hooked = true
 
       HookScript(WorldMapFrame, "OnShow", function()
+        -- Blizzard's fullscreen world map hides the complete UIParent. Keep the
+        -- pfUI map as an overlay while preserving Blizzard's combat-safe toggle.
+        UIParent:Show()
+        if BlackoutWorld then BlackoutWorld:Hide() end
+
         -- The world map is protected in combat. Its layout is already applied
         -- during login, so avoid tainting the combat-safe Blizzard open path.
         if InCombatLockdown and InCombatLockdown() then return end

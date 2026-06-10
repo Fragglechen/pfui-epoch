@@ -54,9 +54,8 @@ function pfUI:MacroAddonsLoaded()
 end
 
 -- detect current addon path
-local tocs = { "", "-master", "-tbc", "-wotlk" }
-for _, name in pairs(tocs) do
-  local current = string.format("pfUI%s", name)
+local tocs = { "pfui-epoch", "pfUI", "pfUI-master", "pfUI-tbc", "pfUI-wotlk" }
+for _, current in pairs(tocs) do
   local _, title = GetAddOnInfo(current)
   if title then
     pfUI.name = current
