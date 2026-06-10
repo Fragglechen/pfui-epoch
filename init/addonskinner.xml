@@ -24,6 +24,7 @@
   <Include file="..\skins\addons\ES_GuildCheckGUI.lua"/>
   <Include file="..\skins\addons\FlightTracker.lua"/>
   <Include file="..\skins\addons\GearMenu.lua"/>
+  <Include file="..\skins\addons\GlobalFriedlistEpoch.lua"/>
   <Include file="..\skins\addons\ignitestatus.lua"/>
   <Include file="..\skins\addons\ItemHints.lua"/>
   <Include file="..\skins\addons\ItemRack.lua"/>
